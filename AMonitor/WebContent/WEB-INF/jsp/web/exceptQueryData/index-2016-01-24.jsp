@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@ page contentType="text/html;charset=utf-8"%>
+<%@ include file="/WEB-INF/jsp/include.jsp"%>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="expires" content="0" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><fmt:message key="webapp.name" /></title>
+<link rel="shortcut icon" href="${rootUrl }images/icon.png" />
+<link href="${rootUrl}css/common.css" rel="stylesheet" type="text/css" />
+<link href="${rootUrl}css/manage.css" rel="stylesheet" type="text/css" />
+<link href="${rootUrl}css/default.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${rootUrl }plugins/jquery/jquery-1.8.2.min.js"></script>
+<script src="${rootUrl }js/tjlib/jquery.tjlib.js" type="text/javascript"></script>
+<script src="${rootUrl }js/tjlib/jquery.taiji-3.0.js" type="text/javascript"></script>
+<script src="${rootUrl }plugins/jquery/jquery.form.js" type="text/javascript"></script>
+<script src="${rootUrl }plugins/datepicker/WdatePicker.js" type="text/javascript"></script>
+<script type='text/javascript'>
+$(function(){
+	$("#sumManage").taiji({
+		enableAclCheck:true
+	});
+	$('#queryBtn').click(function(){
+		$("#listForm").trigger("submit");
+	})
+	
+});
+</script>
+</head>
+<body>
+	<div id='box'>
+		<!-- tops begin -->
+		<%@ include file="/WEB-INF/jsp/web/head.jsp" %>
+		<!-- tops  end -->
+		<!--content begins-->
+		<div id='content'>
+			<div id="sumManage">
+				 <div class="sumlist_title">
+					 <h4>业务异常信息查询-简单查询</h4>
+					  <a href="${rootUrl }app/common/exceptQueryData/index/tongji">可视化展示</a>
+				 </div>
+				 <div class="sublist-toolbar">
+					<form class="taiji_search_form form-inline m-t-5 " modelAttribute="queryModel"  id="listForm" name="listForm" action="${rootUrl }app/common/exceptQueryData/index" method="post">
+						<div class='sbulist_condition'>
+							<ul>
+							<li class='conditioninput'><input name="brand" size="15" maxlength="50" placeholder="手机品牌" /></li>
+							<li class='conditioninput'><input name="type" size="15" maxlength="50" placeholder="型号" /></li>
+							<li class='conditioninput'><input name="version" size="20" maxlength="50" placeholder="Android版本" /></li>
+							<li class='conditioninput'><input name="localIp" size="25" maxlength="50" placeholder="本机IP地址" /></li>
+							<li class='conditioninput'><input name="AppName" size="20" maxlength="50" placeholder="进程名称" /></li>
+							<li class='conditioninput'><input name="IMEI" size="20" maxlength="50" placeholder="IMEI" /></li>
+							<li class='conditioninput'><input name="IMSI" size="20" maxlength="50" placeholder="IMSI" /></li>
+							<li class='conditioninput'><input name="NetType" size="25" maxlength="50" placeholder="网络类型" /></li>
+							<li class='conditioninput'><input name="cid" size="20" maxlength="50" placeholder="CID" /></li>
+							<li class='conditioninput'><input name="LAC" size="20" maxlength="50" placeholder="LAC" /></li>
+							</ul>
+							<ul style='clear:both;margin-top:5px;'>
+							<li class='conditioninput'>
+			 					<input style="width:150px" name="startTime" id='startTime' readonly="true"  class="form-control" placeholder="启动时间开始时间" onfocus="WdatePicker({el:$dp.$('startTime'),dateFmt:'yyyy-MM-dd HH:mm:ss',maxDate:'#F{$dp.$D(\'endTime\')}'});" />
+							</li>
+							<li class='conditioninput'>
+			 					<input style="width:150px" name="endTime"  id='endTime' readonly="true" class="form-control" placeholder="启动时间结束时间"  onfocus="WdatePicker({el:$dp.$('endTime'),dateFmt:'yyyy-MM-dd HH:mm:ss',minDate:'#F{$dp.$D(\'startTime\')}'});"
+			 					value='<fmt:formatDate value="${endTime.time }" pattern="yyyy-MM-dd HH:mm:ss" />' />
+			 				</li>
+							<li><label class="control-label">每页条数</label></li>
+							<li class='conditioninput'>
+								<select name="pageSize" data-style="btn-white" data-width="80px">
+									<option value="2">2</option>
+									<option value="10" selected>10</option>
+									<option value="16">16</option>
+									<option value="20">20</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+								</select>
+							</li>
+							<li>
+								<button class="taiji_search_submit btn btn-md btn-primary m-r-5" type="button" id="queryBtn"><i class="fa fa-search  m-r-10 "></i>查询</button>
+			                     
+                                 
+                                 
+							</li>
+							</ul>
+						</div>
+						</form>
+				 </div>
+				<div class="taiji_search_result table-responsive">
+					<table class="table table-striped table-bordered table-hover">
+						<thead>
+							<tr>
+								<th class="taiji_sortable {orderBy:'createTime',desc:false}">手机品牌</th>
+								<th>手机型号</th>
+								<th>Android版本</th>
+								<th>本机IP地址</th>
+								<th>IMEI</th>
+								<th>IMSI</th>
+								<th width="200px">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+						</tbody>
+					</table>
+				</div>
+				<div class="pageturn taiji_pager"></div>
+			</div>
+		</div>
+		<!--content ends--->
+		<!-- footer begins -->
+		<%@ include file="/WEB-INF/jsp/web/bottom.jsp" %>
+		<!-- footer ends -->
+	</div>
+</body>
+</html>
