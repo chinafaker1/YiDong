@@ -103,6 +103,7 @@ $(function(){
 					<table class="table table-striped table-bordered table-hover">
 						<thead>
 							<tr>
+							    <th>异常类型</th>
 							    <th>异常时间</th>
 								<th class="taiji_sortable {orderBy:'createTime',desc:false}">手机品牌</th>
 								<th>手机型号</th>

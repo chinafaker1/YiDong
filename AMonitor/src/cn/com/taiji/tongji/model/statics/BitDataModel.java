@@ -34,6 +34,20 @@ public class BitDataModel extends PaginModel
 	private String NetType;//网络类型
 	private String cid;//CID
 	private String LAC;//LAC
+	private String excepType;
+	private String addr;
+	public String getExcepType() {
+		return excepType;
+	}
+	public void setExcepType(String excepType) {
+		this.excepType = excepType;
+	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
 	//复杂查询
 	private Calendar launtime;//启动时间
 	private String exittime;//退出时间

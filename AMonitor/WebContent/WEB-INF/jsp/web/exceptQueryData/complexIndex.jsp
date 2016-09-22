@@ -177,6 +177,8 @@ $(function(){
 							<ul style='clear:both;margin-top:5px;'>
 								<li class='conditioninput'>
 									<select name='selectCondition' id="selectCondition">
+									    <option value='LAC'>excepType</option>
+										<option value='LAC'>addr</option>
 										<option value='brand'>手机品牌</option>
 										<option value='type'>手机型号</option>
 										<option value='version'>Android版本</option>
@@ -244,6 +246,7 @@ $(function(){
 					<table class="table table-striped table-bordered table-hover">
 						<thead>
 							<tr>
+							    <th>异常类型</th>
 							    <th>异常时间</th>
 								<th class="taiji_sortable {orderBy:'createTime',desc:false}">手机品牌</th>
 								<th>手机型号</th>

@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=utf-8"%>
 <%@ include file="/WEB-INF/jsp/include.jsp"%>
 <tr>
+    <td>${vo.excepType}</td>
     <td>${vo.excepTime}</td>
 	<td>${vo.brand }</td>
 	<td>${vo.type }</td>

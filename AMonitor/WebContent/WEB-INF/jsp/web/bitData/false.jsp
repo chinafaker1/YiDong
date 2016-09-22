@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p>无MR数据分析结果</p>
+<p class="falseTitle">无MR数据分析结果</p>
 <table class="table">
 <tr>
 <td>RSRP</td>

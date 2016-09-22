@@ -30,6 +30,42 @@ public class BitData extends BaseEntity
 	private int id;
 	private Calendar launtime;//启动时间
 	private String exittime;//退出时间
+	private String excepType;
+	private String longitude;
+	private String latutide;
+	private String addr;
+	public String getExcepType() {
+		return excepType;
+	}
+
+	public void setExcepType(String excepType) {
+		this.excepType = excepType;
+	}
+
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+
+	public String getLatutide() {
+		return latutide;
+	}
+
+	public void setLatutide(String latutide) {
+		this.latutide = latutide;
+	}
+
+	public String getAddr() {
+		return addr;
+	}
+
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+
 	private String usetime;//使用时长
 	private String excepTime;//异常时间
 	private String uploadTime;//上报时间

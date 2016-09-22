@@ -122,3 +122,10 @@ h2{
     background-color: #fff;
     border-color: #ddd;
 }
+.conclusion{
+	text-align:left;
+}
+.falseTitle{
+	color:red;
+	font-size:30px;
+}

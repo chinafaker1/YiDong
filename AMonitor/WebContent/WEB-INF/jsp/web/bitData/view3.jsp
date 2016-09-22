@@ -61,14 +61,14 @@
 		<tr>
 			<th>应用进程名称:</th>
 			<td>${vo.appName }</a></td>
+			<td style="font-weight: bold;">异常类型：</td>
+			<td>${vo.excepType }</a></td>
 		</tr>
 		<tr>
 		    <th>异常时间:</th>
 			<td>${vo.excepTime}</td>
 			 <th>上报次数:</th>
 			<td>${vo.uploadNum+1}</td>
-		   
-		   
 		</tr>
 		<tr>
 		    <th>启动时间</th>
@@ -87,6 +87,16 @@
 			<td>${vo.pidNumber }</a></td>
 			<th>GID:</th>
 			<td>${vo.gid}</td>
+		</tr>
+		<tr>
+		<td style="font-weight: bold;">经度：</td>
+		<td>${vo.longitude }</td>
+		<td style="font-weight: bold;">纬度：</td>
+		<td>${vo.latutide }</td>
+		</tr>
+		<tr>
+		<td style="font-weight: bold;">地址：</td>
+		<td>${vo.addr }</td>
 		</tr>
 		</table>
 	</div>
@@ -133,9 +143,9 @@
 	<div class="tab-pane fade" id="tab3">
     <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
      <div id="container" style="min-width:58%;height:367px"></div>
-      <div id="1"><p>结论：${txtMemRate} ${txtCpuRate} ${txte} ${other1}</p></div>
+      <div id="1"><p class="conclusion">结论：${txtMemRate} ${txtCpuRate} ${txte} ${other1}</p></div>
      <div id="environment" style="min-width:58%;height:367px"></div>
-     <div id="2"><p>结论：${compareE}影响程度最大”</p></div>
+     <div id="2"><p class="conclusion">结论：${compareE}影响程度最大”</p></div>
      <div id="RSRP"  style="min-width:58%;height:367px"></div>
     <div id="RSRQ" style="min-width:58%;height:367px"></div>
     <div id="PacketLossRate-UL" style="min-width:58%;height:367px"></div>

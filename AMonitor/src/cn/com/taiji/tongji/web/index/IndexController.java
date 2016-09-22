@@ -388,7 +388,7 @@ public class IndexController extends BaseLogController
 //		 }
 //		 else
 //			 s="select * from data where brand like '%"+b1.getBrand()+"%'";
-		 s="select * from data where brand like '%"+b1.getBrand()+"%' and version like '%"+b1.getVersion()+"%' and type like '%"+b1.getType()+"%' and localIp like '%"+b1.getLocalIp()+"%' and AppName like '%"+b1.getAppName()+"%' and IMEI like '%"+b1.getIMEI()+"%' and IMSI like '%"+b1.getIMSI()+"%' and  Cell_Id like '%"+b1.getCid()+"%' and LAC like '%"+b1.getLAC()+"%' and launtime > '"+sDate+"' and launtime < '"+eDate+"' and sign=1";
+		 s="select * from data where brand like '%"+b1.getBrand()+"%' and excepType like '%"+b1.getExcepType()+"%' and addr like '%"+b1.getAddr()+"%' and  version like '%"+b1.getVersion()+"%' and type like '%"+b1.getType()+"%' and localIp like '%"+b1.getLocalIp()+"%' and AppName like '%"+b1.getAppName()+"%' and IMEI like '%"+b1.getIMEI()+"%' and IMSI like '%"+b1.getIMSI()+"%' and  Cell_Id like '%"+b1.getCid()+"%' and LAC like '%"+b1.getLAC()+"%' and launtime > '"+sDate+"' and launtime < '"+eDate+"' and sign=1";
 
 		 double a=0;
 	     double b=0;
@@ -660,11 +660,16 @@ public class IndexController extends BaseLogController
         String LAC=request.getParameter("LAC");
        
         String gid=request.getParameter("gid");
+        
+        String excepType=request.getParameter("excepType");
+        String longitude=request.getParameter("longitude");
+        String latutide=request.getParameter("latutide");
+        String addr=request.getParameter("addr");
        
 //        String id=String.valueOf(UUID.randomUUID());//构造函数生成唯一外键
 //        System.out.print(id);
         if(launtime.equals(null)) return;
-    	String s1="insert into data(launtime,exittime,usetime,brand,type,version,corporation,Cell_Id,cpuRate,localIp,AppName,uid,pid,pidNumber,MemRate,IMEI,IMSI,LAC,gid,excepTime,uploadNum,uploadTime) values('"+launtime+"','"+exittime+"','"+usetime+"','"+brand+"','"+type+"','"+version+"','"+corporation+"','"+Cell_Id+"','"+cpuRate+"','"+localIp+"','"+AppName+"','"+uid+"','"+pid+"','"+pidNumber+"','"+MemRate+"','"+IMEI+"','"+IMSI+"','"+LAC+"','"+gid+"','"+excepTime+"',"+uploadNum+",'"+uploadTime+"')";
+    	String s1="insert into data(excepType,launtime,exittime,usetime,brand,type,version,corporation,Cell_Id,cpuRate,localIp,AppName,uid,pid,pidNumber,MemRate,IMEI,IMSI,LAC,gid,excepTime,uploadNum,uploadTime,longitude,latutide,addr) values('"+excepType+"','"+launtime+"','"+exittime+"','"+usetime+"','"+brand+"','"+type+"','"+version+"','"+corporation+"','"+Cell_Id+"','"+cpuRate+"','"+localIp+"','"+AppName+"','"+uid+"','"+pid+"','"+pidNumber+"','"+MemRate+"','"+IMEI+"','"+IMSI+"','"+LAC+"','"+gid+"','"+excepTime+"',"+uploadNum+",'"+uploadTime+"','"+longitude+"','"+latutide+"','"+addr+"')";
     	Jdbc jdbc=new Jdbc();
     	int b2=jdbc.executeUpdate1(s1);
     	System.out.println(b2);
@@ -732,6 +737,14 @@ public class IndexController extends BaseLogController
 		b1.setLAC("");
 	    else
 	    b1.setLAC(queryModel.getLAC());
+	    if(queryModel.getExcepType()==null)
+			b1.setExcepType("");
+		    else
+		    b1.setExcepType(queryModel.getExcepType());
+	    if(queryModel.getAddr()==null)
+			b1.setAddr("");
+		    else
+		    b1.setAddr(queryModel.getAddr());
 	    if(queryModel.getVersion()==null)
 		b1.setVersion("");
 	    else

@@ -106,6 +106,8 @@ $(function(){
 								<li class='conditioninput'><input name="NetType" id="NetType" size="25" maxlength="50" placeholder="网络类型" /></li>
 								<li class='conditioninput'><input name="cid" id="cid" size="20" maxlength="50" placeholder="CID" /></li>
 								<li class='conditioninput'><input name="LAC" id="LAC" size="20" maxlength="50" placeholder="LAC" /></li>
+								<li class='conditioninput'><input name="excepType" id="excepType" size="20" maxlength="50" placeholder="异常类型" /></li>
+								<li class='conditioninput'><input name="addr" id="addr" size="20" maxlength="50" placeholder="地址" /></li>
 							</ul>
 							<ul style='clear:both;margin-top:5px;'>
 								<li class='conditioninput'>
@@ -120,6 +122,9 @@ $(function(){
 										<option value='NetType'>网络类型</option>
 										<option value='cid'>CID</option>
 										<option value='LAC'>LAC</option>
+										<option value='LAC'>excepType</option>
+										<option value='LAC'>addr</option>
+										
 									</select>
 								</li>
 								<li class='conditioninput'><input name="inputvalue" id="inputvalue" size="15" placeholder="请输入手机品牌" /></li>
@@ -171,6 +176,7 @@ $(function(){
 					<table class="table table-striped table-bordered table-hover">
 						<thead>
 							<tr>
+							    <th>异常类型</th>
 							    <th>异常时间</th>
 								<th class="taiji_sortable {orderBy:'createTime',desc:false}">手机品牌</th>
 								<th>手机型号</th>

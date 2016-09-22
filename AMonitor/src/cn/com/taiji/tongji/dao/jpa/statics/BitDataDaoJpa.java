@@ -53,7 +53,8 @@ public class BitDataDaoJpa extends MyBaseDao<BitData> implements BitDataDao
 		String NetType=queryModel.getNetType();//网络类型
 		String cid=queryModel.getCid();//CID
 		String LAC=queryModel.getLAC();//LAC
-		
+		String excepType=queryModel.getExcepType();
+		String addr=queryModel.getAddr();
 		//复杂查询
 		Calendar startLauntime=queryModel.getStartTime();//启动时间
 		Calendar endLauntime=queryModel.getEndTime();//启动时间
@@ -91,6 +92,8 @@ public class BitDataDaoJpa extends MyBaseDao<BitData> implements BitDataDao
 		hql.append(" and cpuRate = :cpuRate ",cpuRate);
 		hql.append(" and TxByte = :TxByte ",TxByte);
 		hql.append(" and RxByte = :RxByte ",RxByte);
+		hql.append(" and excepType = :excepType ",excepType);
+		hql.append(" and addr = :addr ",addr);
 		hql.append(" and RSRP >= :RSRP ",RSRP);
 		hql.append(" and RSRP <= :RSRP1 ",RSRP1);
 		hql.append(" and RSRQ >= :RSRQ ",RSRQ);
